@@ -1,14 +1,61 @@
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <div class="jumbotron">
-        <h1>Global Webpage Comment Form</h1>
-        <p>add comments to any page on the web ...</p>
+        <h1>Closet</h1>
+        <p>Add the clothes currently in your closet!</p>
     </div>
 
-    <form method="post" action="/processform">
-      URL: <input type="text" name="url"> <br>
-      comments: <textarea name="theComments"></textarea>
-      <input type="submit">
-    </form>
+  <form method="post" action="/processform">
+          <div class="form-group">
+
+            <label for="exampleFormControlFile1">Choose...</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="clothes">
+          </div>
+        <p>What kind of weather is the piece of clothing suitable for? </p>
+
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" value="Sunny" id="defaultCheck1" name="weather">
+          <label class="form-check-label" for="defaultCheck1">
+            Sunny
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" value="Cloudy" id="defaultCheck2" name="weather">
+          <label class="form-check-label" for="defaultCheck2">
+            Cloudy
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" value="Rainy" id="defaultCheck3" name="weather">
+          <label class="form-check-label" for="defaultCheck3">
+            Rainy
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" value="Cold" id="defaultCheck4" name="weather">
+          <label class="form-check-label" for="defaultCheck4">
+            Cold
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" value="Hot" id="defaultCheck5" name="weather">
+          <label class="form-check-label" for="defaultCheck5">
+            Hot
+          </label>
+        </div>
+        <div class="form-check">
+
+          <input class="form-check-input" type="checkbox" value="Chilly" id="defaultCheck6" name="weather">
+          <label class="form-check-label" for="defaultCheck6">
+            Chilly
+          </label>
+          <input type="submit">
+        </div>
+  </form>
 
 <%- include('bootfooter') -%>

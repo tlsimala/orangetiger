@@ -18,9 +18,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next){
   console.log("about to look for routes!")
-  console.dir(req.headers)
   next()
 })
+
+function processFormData(req,res,next){
+  console.log("this is the body %%%")
+  console.dir(req.body)
+  res.render('formdata',{title:"Form Data",
+  file:req.body.clothes, list:req.body.weather});
+}
 app.get('/', function(req, res, next) {
   res.render('index',{title:"Express Demo"});
 });
@@ -33,11 +39,7 @@ app.get('/myform', function(req, res, next) {
   res.render('myform',{title:"Form Demo"});
 });
 
-app.post('/processform', function(req, res, next) {
-  console.dir(req.body)
-  res.render('formdata',
-     {title:"Form Data",url:req.body.url, coms:req.body.theComments});
-});
+app.post('/processform', processFormData);
 
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct
