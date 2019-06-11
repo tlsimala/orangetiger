@@ -16,7 +16,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use(function(req, res, next){
+  console.log("about to look for routes!")
+  console.dir(req.headers)
+  next()
+})
 app.get('/', function(req, res, next) {
   res.render('index',{title:"Express Demo"});
 });
