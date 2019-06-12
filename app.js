@@ -4,6 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+const mongoose = require( 'mongoose' );
+mongoose.connect( 'mongodb://localhost/mydb' );
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!")
+});
+
+// here is where we connect to the database!
+const clothesController = require('./controllers/clothesController.js')
+
 var app = express();
 
 // view engine setup
@@ -39,7 +51,12 @@ app.get('/myform', function(req, res, next) {
   res.render('myform',{title:"Form Demo"});
 });
 
-app.post('/processform', processFormData);
+app.get('/practiceQuiz', function(req, res, next) {
+  res.render('practiceQuiz',{title:"Quiz1"});
+});
+
+//app.post('/processform', clothesController.saveClothes)
+//app.get('/showClothes',  clothesController.getAllClothes)
 
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct

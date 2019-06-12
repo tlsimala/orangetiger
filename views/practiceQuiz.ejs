@@ -1,0 +1,85 @@
+<%- include('bootheader') -%>
+
+<div class="jumbotron">
+  <h1>CS152aj Quiz 1</h1>
+  <p>Write the HTML with Bootstrap to create this page. Upload your code to Latte. You can make your page in yellowcartwheel.</p>
+</div>
+
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div style="float: left"> <img src="images/brandeis.jpeg" width="300">
+          <div style="float: right"> <a href="https://www.brandeis.edu/" class="stretched-link">Brandeis University</a>
+            was named after Justice Louis Dembitz Brandeis
+            <ul>
+              <li>Supreme Court Justice</li>
+              <li>Strong supporter of Privacy</li>
+              <li>Namesake of Brandeis University</li>
+            </ul>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="jumbotron">
+          <h1>Enter your information</h1>
+          <p>To be enrolled in a raffle</p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td><input type="text"></td>
+
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><input type="text"></td>
+            </tr>
+            <tr>
+              <td>Class</td>
+              <td><div class="d-flex">
+                <div class="dropdown mr-1">
+                  <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+                    Freshmen
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                    <a class="dropdown-item" href="#">Sophomore</a>
+                    <a class="dropdown-item" href="#">Junior</a>
+                    <a class="dropdown-item" href="#">Senior</a>
+                  </div>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm">
+          <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Submit</a>
+          <div class="col-sm">
+            <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Reset</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+<%- include('bootfooter') -%>
