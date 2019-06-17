@@ -9,47 +9,67 @@
           <div class="form-group">
 
             <label for="exampleFormControlFile1">Choose...</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="clothes">
+            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
           </div>
-        <p>What kind of weather is the piece of clothing suitable for? </p>
+
+          <!-- <div>
+            <p>What type of clothing is it?</p>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="top" name="ctype">
+              <label class="form-check-label" for="inlineCheckbox1">top</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="bottoms" name="ctype">
+              <label class="form-check-label" for="inlineCheckbox2">bottom</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="shoes" name="ctype">
+              <label class="form-check-label" for="inlineCheckbox3">shoes</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="coat" name="ctype">
+              <label class="form-check-label" for="inlineCheckbox4">coat</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="accessories" name="ctype">
+              <label class="form-check-label" for="inlineCheckbox5">accessory</label>
+            </div>
+          </div> -->
+
+        <p>
+          What kind of weather is the piece of clothing suitable for? </p>
 
         <div class="form-check">
-
           <input class="form-check-input" type="checkbox" value="Sunny" id="defaultCheck1" name="weather">
           <label class="form-check-label" for="defaultCheck1">
             Sunny
           </label>
         </div>
         <div class="form-check">
-
           <input class="form-check-input" type="checkbox" value="Cloudy" id="defaultCheck2" name="weather">
           <label class="form-check-label" for="defaultCheck2">
             Cloudy
           </label>
         </div>
         <div class="form-check">
-
           <input class="form-check-input" type="checkbox" value="Rainy" id="defaultCheck3" name="weather">
           <label class="form-check-label" for="defaultCheck3">
             Rainy
           </label>
         </div>
         <div class="form-check">
-
           <input class="form-check-input" type="checkbox" value="Cold" id="defaultCheck4" name="weather">
           <label class="form-check-label" for="defaultCheck4">
             Cold
           </label>
         </div>
         <div class="form-check">
-
           <input class="form-check-input" type="checkbox" value="Hot" id="defaultCheck5" name="weather">
           <label class="form-check-label" for="defaultCheck5">
             Hot
           </label>
         </div>
         <div class="form-check">
-
           <input class="form-check-input" type="checkbox" value="Chilly" id="defaultCheck6" name="weather">
           <label class="form-check-label" for="defaultCheck6">
             Chilly
@@ -57,5 +77,6 @@
           <input type="submit">
         </div>
   </form>
+
 
 <%- include('bootfooter') -%>

@@ -1,20 +1,22 @@
 'use strict';
-const clothes = require( '../models/clothes' );
+const Clothes = require( '../models/Clothes' );
 
-exports.saveSkill = ( req, res ) => {
+exports.saveClothes = ( req, res ) => {
   //console.log("in saveSkill!")
   //console.dir(req)
-  let newSkill = new Skill( {
-  //  type: req.body.file,
-    classification: req.body.weather,
-    img: req.body.file
-  } )
+  let newClothes = new Clothes(
+   {
+    file: req.body.file
+    //type: req.body.type,
+  //  classification: req.body.list
+   }
+  )
 
   //console.log("skill = "+newSkill)
 
-  newSkill.save()
+  newClothes.save()
     .then( () => {
-      res.redirect( '/skills' );
+      res.redirect( '/showClothes' );
     } )
     .catch( error => {
       res.send( error );
@@ -22,14 +24,15 @@ exports.saveSkill = ( req, res ) => {
 };
 
 
+
 // this displays all of the skills
 exports.getAllClothes = ( req, res ) => {
   //gconsle.log('in getAllSkills')
-  clothes.find( )
+  Clothes.find()
     .exec()
-    .then( ( skills ) => {
+    .then( ( clothes ) => {
       res.render( 'clothes', {
-        clothes: clothes, title: "Closet"  //json object please check to make sure it is okay??
+        clothes:clothes, title:"Clothes"
       } );
     } )
     .catch( ( error ) => {

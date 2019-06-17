@@ -4,17 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
 const mongoose = require( 'mongoose' );
 mongoose.connect( 'mongodb://localhost/mydb' );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log("we are connected!")
+  console.log("we are connected!!!")
 });
 
-// here is where we connect to the database!
-const clothesController = require('./controllers/clothesController.js')
+const clothesController = require('./controllers/clothesController')
 
 var app = express();
 
@@ -28,17 +26,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next){
-  console.log("about to look for routes!")
+app.use(function(req,res,next){
+  console.log("about to look for routes!!!")
+  //console.dir(req.headers)
   next()
-})
+});
 
-function processFormData(req,res,next){
-  console.log("this is the body %%%")
-  console.dir(req.body)
-  res.render('formdata',{title:"Form Data",
-  file:req.body.clothes, list:req.body.weather});
-}
+
 app.get('/', function(req, res, next) {
   res.render('index',{title:"Express Demo"});
 });
@@ -51,13 +45,19 @@ app.get('/myform', function(req, res, next) {
   res.render('myform',{title:"Form Demo"});
 });
 
-app.get('/practiceQuiz', function(req, res, next) {
-  res.render('practiceQuiz',{title:"Quiz1"});
+app.use(function(req,res,next){
+  console.log("about to look for post routes!!!")
+  next()
 });
 
-//app.post('/processform', clothesController.saveClothes)
-//app.get('/showClothes',  clothesController.getAllClothes)
+function processFormData(req,res,next){
+  res.render('formdata',
+     {title:"Form Data",file:req.body.file})
+}   //typec:req.body.ctype , list:req.body.weather
 
+app.post('/processform', clothesController.saveClothes);
+
+app.get('/showClothes', clothesController.getAllClothes);
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct
 
@@ -80,3 +80,22 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+// function processFormData(req,res,next){
+//   console.log("this is the body %%%")
+//   console.dir(req.body)
+//   res.render('formdata',{title:"Form Data",
+//   file:req.body.clothes, typec:req.body.ctype, list:req.body.weather});
+// }
+
+
+// app.get('/practiceQuiz', function(req, res, next) {
+//   res.render('practiceQuiz',{title:"Quiz1"});
+// });
+
+//app.post('/processform', clothesController.saveClothes)
+//app.get('/showClothes',  clothesController.getAllClothes)
+
+// app.use('/', indexRouter);  // this is how we use a router to handle the / path
+// but here we are more direct
