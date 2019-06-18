@@ -3,5 +3,13 @@
     <div class="jumbotron">
         <h1>Closet</h1>
         </div>
- <%= clothes%>
+
+        <ol>
+          <% for(i = 0; i<clothes.length; i++){  %>
+            <li> <a href="<%= clothes[i].file %>">
+              <%= clothes[i].file %></a>
+              <i>
+                <% } %>
+              </ol>
+
 <%- include('bootfooter') -%>
