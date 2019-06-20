@@ -1,15 +1,15 @@
+
 <%- include('bootheader') -%>
 <%- include('menubar') -%>
     <div class="jumbotron">
-        <h1>Closet</h1>
-        </div>
-
-        <ol>
-          <% for(i = 0; i<clothes.length; i++){  %>
-            <li> <a href="<%= clothes[i].file %>">
-              <%= clothes[i].file %></a>
+        <h1>Clothes</h1>
+    </div>
+    <ol>
+    <% for(i = 0; i<clothes.length; i++){  %>
+        <li> <a href="/showclothes/<%= clothes[i]._id %>">
+              <%= clothes[i].id %></a>
               <i>
-                <% } %>
-              </ol>
-
+             <%= clothes[i].file %></\/i> </li>
+    <% } %>
+    </ol>
 <%- include('bootfooter') -%>

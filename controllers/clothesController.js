@@ -43,3 +43,24 @@ exports.getAllClothes = ( req, res ) => {
       //console.log( 'skill promise complete' );
     } );
 };
+
+// this displays all of the skills
+exports.getOneClothes = ( req, res ) => {
+  //gconsle.log('in getAllSkills')
+  const id = req.params.id
+  console.log('the id is '+id)
+  Clothes.findOne({_id:id})
+    .exec()
+    .then( ( clothing ) => {
+      res.render( 'clothing', {
+        clothing:clothing, title:"Clothes"
+      } );
+    } )
+    .catch( ( error ) => {
+      console.log( error.message );
+      return [];
+    } )
+    .then( () => {
+      //console.log( 'skill promise complete' );
+    } );
+};

@@ -130,7 +130,6 @@ app.get('/login/authorized',
         })
       );
 
-
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
     console.log("checking to see if they are authenticated!")
@@ -186,15 +185,14 @@ app.use(function(req,res,next){
 
 function processFormData(req,res,next){
   res.render('formdata',
-     {title:"Form Data",file:req.body.file})
+     {title:"Form Data", file:req.body.file})
 }
-
 app.post('/processform', clothesController.saveClothes)
 
-app.get('/showComments', clothesController.getAllClothes)
+app.get('/showClothes', clothesController.getAllClothes)
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct
-
+app.get('/showClothes/:id', clothesController.getOneClothes)
 
 
 // catch 404 and forward to error handler
@@ -204,7 +202,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  // set locals, only providing error in development245
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
