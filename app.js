@@ -20,6 +20,7 @@ db.once('open', function() {
 });
 
 const clothesController = require('./controllers/clothesController')
+// const profileController = require('./controllers/profileController')
 
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -125,7 +126,7 @@ app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'e
 
 app.get('/login/authorized',
         passport.authenticate('google', {
-                successRedirect : '/',
+                successRedirect : '/profile',
                 failureRedirect : '/loginerror'
         })
       );
@@ -152,8 +153,18 @@ app.get('/profile', isLoggedIn, function(req, res) {
         });*/
     });
 
+// app.get('/editprofile', isLoggedIn, {
+//
+// }
+
 // END OF THE AUTHENTICATION ROUTES
 
+
+
+
+
+
+//add page for editprofile and then send it to an updated profile page which send brower to /profile
 app.use(function(req,res,next){
   console.log("about to look for routes!!!")
   //console.dir(req.headers)
@@ -169,12 +180,24 @@ app.get('/homepage', function(req, res, next) {
   res.render('homepage',{title:"orangetiger"});
 });
 
+app.get('/aboutme', function(req, res, next) {
+  res.render('aboutme',{title:"About Me"});
+});
+
+app.get('/practiceQuiz1a', function(req, res, next) {
+  res.render('practiceQuiz1a',{title:"practiceQuiz1a"});
+});
+
 app.get('/griddemo', function(req, res, next) {
   res.render('griddemo',{title:"Grid Demo"});
 });
 
 app.get('/myform', function(req, res, next) {
   res.render('myform',{title:"Form Demo"});
+});
+
+app.get('/random', function(req, res, next) {
+  res.render('random',{title:"Random"});
 });
 
 

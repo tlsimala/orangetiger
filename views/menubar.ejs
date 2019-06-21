@@ -1,45 +1,66 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">orangetiger</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<html>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+  <style>
+    body {
+      font-family: 'Arimo', sans-serif;
+      padding-top: 50px;
+    }
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Demo pages
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/griddemo">Bootstrap Grid Demo</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-      <% if (loggedIn) { %>
-      <li class="nav-item">
-        <a class="nav-link active" href="/logout"> Logout</a>
-      </li>
-      <% } else { %>
-        <li class="nav-item">
-          <a class="nav-link active" href="/auth/google"> Login</a>
-        </li>
-        <% }  %>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    .menu-bar {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      height: 14px;
+      margin-left: -10px;
+    }
 
-  </div>
-</nav>
+    .bars {
+      display: block;
+      width: 20px;
+      height: 3px;
+      background-color: #333;
+      box-shadow: 0 5px 0 #333, 0 10px 0 #333;
+    }
+
+    .menu {
+      display: none;
+      width: 100%;
+      padding: 30px 10px 50px;
+      margin: 0 auto;
+      text-align: center;
+      background-color: #fff;
+    }
+    .menu ul {
+      margin-bottom: 0;
+    }
+    .menu a {
+      color: #333;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .menu a:hover {
+      text-decoration: none;
+      opacity: 1;
+    }
+  </style>
+</head>
+</html>
+
+<link href="http://fonts.googleapis.com/css?family=Arimo:400" rel="stylesheet">
+<a class="menu-bar" data-toggle="collapse" href="#menu">
+  <span class="bars"></span>
+</a>
+<div class="collapse menu" id="menu">
+  <ul class="list-inline">
+    <li><a href="/homepage">Home</a></li>
+    <li><a href="/aboutme">About</a></li>
+    <li><a href="/profile">Profile</a></li>
+    <li><a href="#">Weather</a></li>
+    <li><a href="/showClothes">Closet</a></li>
+  </ul>
+</div>
+
+</div>
