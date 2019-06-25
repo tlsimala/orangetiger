@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var apikey = require('./config/apikey');
+
 // AUTHENTICATION MODULES
 session = require("express-session"),
 bodyParser = require("body-parser"),
@@ -20,7 +22,7 @@ db.once('open', function() {
 });
 
 const clothesController = require('./controllers/clothesController')
-// const profileController = require('./controllers/profileController')
+const profileController = require('./controllers/profileController')
 
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -80,10 +82,7 @@ app.use((req,res,next) => {
       if (req.user.googleemail=='tlsimala@brandeis.edu'){
         console.log("Owner has logged in")
         res.locals.status = 'teacher'
-      } else if (taList.includes(req.user.googleemail)){
-        console.log("A TA has logged in")
-        res.locals.status = 'ta'
-      }else {
+      } else {
         console.log('student has logged in')
         res.locals.status = 'student'
       }
@@ -148,10 +147,19 @@ function isLoggedIn(req, res, next) {
 
 // we require them to be logged in to see their profile
 app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile')/*, {
-            user : req.user // get the user out of session and pass to template
-        });*/
-    });
+  res.render('profile')/*, {
+    user : req.user // get the user out of session and pass to template
+  });*/
+});
+app.get('/editProfile',isLoggedIn, (req,res)=>{
+  res.render('editProfile')
+})
+
+app.get('/profiles', isLoggedIn, profileController.getAllProfiles);
+app.get('/showProfile/:id', isLoggedIn, profileController.getOneProfile);
+
+
+app.post('/updateProfile',profileController.update)
 
 // app.get('/editprofile', isLoggedIn, {
 //
@@ -198,6 +206,10 @@ app.get('/myform', function(req, res, next) {
 
 app.get('/random', function(req, res, next) {
   res.render('random',{title:"Random"});
+});
+
+app.get('/myform2', function(req, res, next) {
+  res.render('myform2',{title:"myform2"});
 });
 
 
