@@ -23,6 +23,7 @@ db.once('open', function() {
 
 const clothesController = require('./controllers/clothesController')
 const profileController = require('./controllers/profileController')
+const recipeController = require('./controllers/recipeController')
 
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -212,6 +213,10 @@ app.get('/myform2', function(req, res, next) {
   res.render('myform2',{title:"myform2"});
 });
 
+app.get('/recipes', function(req, res, next) {
+  res.render('recipes',{title:"recipes"});
+});
+
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
@@ -228,6 +233,12 @@ app.get('/showClothes', clothesController.getAllClothes)
 // app.use('/', indexRouter);  // this is how we use a router to handle the / path
 // but here we are more direct
 app.get('/showClothes/:id', clothesController.getOneClothes)
+
+app.post('/showRecipes',recipeController.saveRecipe)
+
+app.get('/showRecipes',recipeController.getAllRecipes)
+
+app.post('/recipesDelete',recipeController.deleteRecipe)
 
 
 // catch 404 and forward to error handler
