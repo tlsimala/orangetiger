@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//var apikey = require('./config/apikey');
+var apikey = require('./config/apikey');
 
 // AUTHENTICATION MODULES
 session = require("express-session"),
@@ -189,10 +189,6 @@ app.get('/homepage', function(req, res, next) {
   res.render('homepage',{title:"orangetiger"});
 });
 
-app.get('/aboutme', function(req, res, next) {
-  res.render('aboutme',{title:"About Me"});
-});
-
 app.get('/practiceQuiz1a', function(req, res, next) {
   res.render('practiceQuiz1a',{title:"practiceQuiz1a"});
 });
@@ -204,19 +200,6 @@ app.get('/griddemo', function(req, res, next) {
 app.get('/myform', function(req, res, next) {
   res.render('myform',{title:"Form Demo"});
 });
-
-app.get('/random', function(req, res, next) {
-  res.render('random',{title:"Random"});
-});
-
-app.get('/myform2', function(req, res, next) {
-  res.render('myform2',{title:"myform2"});
-});
-
-app.get('/recipes', function(req, res, next) {
-  res.render('recipes',{title:"recipes"});
-});
-
 
 app.use(function(req,res,next){
   console.log("about to look for post routes!!!")
